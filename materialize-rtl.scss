@@ -1,0 +1,273 @@
+
+
+// _sideNav
+.side-nav {
+
+  li > a > i {
+    float: right;
+    margin: 0 0 0 16px;
+  }
+}
+
+// _materialbox
+.materialboxed.active {
+  max-width: inherit;
+}
+
+
+// forms/_radio_buttons.scss
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  right: -9999px;
+  left: auto;
+}
+
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  padding-right: 35px;
+  padding-left: 0;
+}
+
+[type="radio"] + label:before,
+[type="radio"] + label:after {
+  right: 0;
+  left: auto;
+}
+
+
+// forms/_checkboxes.scss
+form p {
+  text-align: right;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  left: auto;
+  right: -9999px;
+}
+
+[type="checkbox"] {
+
+  + label {
+    padding-left: 0;
+    padding-right: 35px;
+  }
+
+  + label:before,
+  &:not(.filled-in) + label:after {
+    left: auto;
+    right: 0;
+  }
+}
+
+[type="checkbox"]:checked {
+  + label:before {
+    right: 13px;
+    left: auto;
+  }
+}
+
+// Filled in Style
+[type="checkbox"].filled-in {
+
+  + label:before,
+  + label:after {
+    right: 0;
+    left: auto;
+  }
+
+  &:not(:checked) + label:before {
+    right: 10px;
+    left: auto;
+  }
+
+  &:not(:checked) + label:after {
+    right: 0;
+    left: auto;
+  }
+
+  &:checked {
+    + label:before {
+      right: 10px;
+      left: auto;
+    }
+  }
+}
+
+
+
+
+// forms/_input-fields.scss
+.input-field {
+
+  .prefix {
+    text-align: right;
+  }
+
+  .prefix ~ input,
+  .prefix ~ textarea {
+    margin-right: 3rem;
+    margin-left: auto;
+  }
+
+  .prefix ~ label {
+    margin-right: 3rem;
+    margin-left: auto;
+  }
+  .file-path-wrapper {
+    padding-right: 10px;
+    padding-left: 0;
+  }
+}
+
+// forms/_select.scss
+.select-wrapper {
+  span.caret {
+    right: auto;
+    left: 0;
+  }
+}
+
+
+
+// _global.scss
+td, th{
+  text-align: initial;
+}
+
+
+
+// _tabs.scss
+.tabs {
+  display: block;
+
+  .tab {
+    float: left !important;
+  }
+}
+
+// _collapsible.scss
+.collapsible-header {
+
+  i {
+    float: right;
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+}
+
+
+// _input-fields.scss
+.input-field {
+  label {
+    left: auto;
+    right: $gutter-width / 2;
+  }
+}
+
+// _dropdown.scss
+.dropdown-content {
+  li {
+    text-align: right;
+  }
+}
+
+
+
+
+.row {
+
+  .col {
+    float: right;
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.s#{$i} {
+        width: $perc;
+        margin-right: auto;
+        left: auto;
+        right: auto;
+      }
+      $i: $i + 1;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.offset-s#{$i} {
+        margin-left: auto;
+        margin-right: $perc;
+      }
+      &.pull-s#{$i} {
+        left: $perc;
+      }
+      &.push-s#{$i} {
+        right: $perc;
+      }
+      $i: $i + 1;
+    }
+
+    @media #{$medium-and-up} {
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.m#{$i} {
+          width: $perc;
+          margin-right: auto;
+          left: auto;
+          right: auto;
+        }
+        $i: $i + 1
+      }
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.offset-m#{$i} {
+          margin-left: auto;
+          margin-right: $perc;
+        }
+        &.pull-m#{$i} {
+          left: $perc;
+        }
+        &.push-m#{$i} {
+          right: $perc;
+        }
+        $i: $i + 1;
+      }
+    }
+
+    @media #{$large-and-up} {
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.l#{$i} {
+          width: $perc;
+          margin-right: auto;
+          left: auto;
+          right: auto;
+        }
+        $i: $i + 1;
+      }
+
+      $i: 1;
+      @while $i <= $num-cols {
+        $perc: unquote((100 / ($num-cols / $i)) + "%");
+        &.offset-l#{$i} {
+          margin-left: auto;
+          margin-right: $perc;
+        }
+        &.pull-l#{$i} {
+          left: $perc;
+        }
+        &.push-l#{$i} {
+          right: $perc;
+        }
+        $i: $i + 1;
+      }
+    }
+  }
+}
